@@ -1,27 +1,31 @@
 import React from 'react'
 
-const Form = () => {
+const Form = props => {
   return (
-      <form>
-        <label htmlFor="weight">Weight</label>
-        <input
-          type="weight"
-          required
-          placeholder="Weight in kgs"
-          name="Weight"
-          id="Weight"
-        />
-        <label htmlFor="height">Height</label>
-        <input
-          type="number"
-          required
-          placeholder="Height in cms"
-          name="height"
-          id="height"
-        />
-        <button>Calculate BMI</button>
-      </form>
-    )
+    <form>
+      <label htmlFor="weight">Weight</label>
+      <input
+        type="weight"
+        required
+        placeholder="Weight in kgs"
+        value={props.weight}
+        name="Weight"
+        id="Weight"
+        onChange={props.onChangeHandler}
+      />
+      <label htmlFor="height">Height</label>
+      <input
+        type="number"
+        required
+        placeholder="Height in cms"
+        value={props.height}
+        name="height"
+        id="height"
+        onChange={props.onChangeHandler}
+      />
+      <button id="calculate">Calculate BMI</button>
+    </form>
+  );
 }
 
 export default Form
