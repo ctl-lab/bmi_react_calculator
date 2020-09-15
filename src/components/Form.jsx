@@ -5,12 +5,12 @@ const Form = props => {
     <form onSubmit={props.onSubmitHandler}>
       <label htmlFor="weight">Weight</label>
       <input
-        type="weight"
+        type="number"
         required
         placeholder="Weight in kgs"
         value={props.weight}
-        name="Weight"
-        id="Weight"
+        name="weight"
+        id="weight"
         onChange={props.onChangeHandler}
       />
       <label htmlFor="height">Height</label>
