@@ -9,16 +9,25 @@ class App extends Component {
     weight: "",
     height: "",
     bmiValue: "",
-    bmiMessage: ""
+    bmiMessage: "",
+    method: "metric"
   };
 
   onChangeHandler = e => this.setState({ [e.target.name]: e.target.value });
+
+  onMethodSelect = (e) => {
+    let methodByUser = e.target.value
+    this.setState({method: methodByUser})
+
+
+  }
 
   onSubmitHandler = e => {
     e.preventDefault();
     const [bmiValue, bmiMessage] = calculateBmi(
       this.state.weight,
-      this.state.height
+      this.state.height,
+      this.state.method
     );
     this.setState({ bmiValue: bmiValue, bmiMessage: bmiMessage });
   };
@@ -31,6 +40,7 @@ class App extends Component {
           height={this.state.height}
           onChangeHandler={this.onChangeHandler}
           onSubmitHandler={this.onSubmitHandler}
+          onMethodSelect={this.onMethodSelect}
         />
         {this.state.bmiValue && (
           <Message

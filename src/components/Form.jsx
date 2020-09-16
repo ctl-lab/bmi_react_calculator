@@ -3,6 +3,13 @@ import React from 'react'
 const Form = props => {
   return (
     <form onSubmit={props.onSubmitHandler}>
+
+      <label for="method-selector">Choose method:</label>
+      <select id="method-selector" onChange={props.onMethodSelect}>
+        <option value="metric">Metric</option>
+        <option value="imperial">Imperial</option>
+      </select>
+
       <label htmlFor="weight">Weight</label>
       <input
         type="number"
@@ -19,6 +26,8 @@ const Form = props => {
         required
         placeholder="Height in cms"
         value={props.height}
+        // name is the one that matters here, the one that has the name 
+        // for the e.target.name to work
         name="height"
         id="height"
         onChange={props.onChangeHandler}
